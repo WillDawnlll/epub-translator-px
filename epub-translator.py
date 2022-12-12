@@ -268,7 +268,9 @@ class TranslatorEngine():
         return extracted_contents
 
     def translate_text(self, text):
-        translator = google_translator(timeout=5)
+        #translator = google_translator(timeout=5)
+        translator = google_translator(url_suffix="com",timeout=30,proxies={'http':'socks5://192.168.162.1:10810','https':'socks5://192.168.162.1:10810'})
+
         if type(text) is not str:
             translate_text = ''
             for substr in text:
